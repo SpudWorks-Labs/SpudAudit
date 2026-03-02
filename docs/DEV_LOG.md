@@ -1,4 +1,4 @@
-# Development Log.
+# SpudAudit; Development Log.
 
 **NOTE:** All time is in ***UTC***
 
@@ -34,3 +34,5 @@
 ---
 
 ### TO-DO
+[!!!] Test the file.
+[!] Update the changes that were made - if they stick; requirements update.
