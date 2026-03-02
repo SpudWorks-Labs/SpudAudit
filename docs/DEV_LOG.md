@@ -13,6 +13,9 @@
     - Now I need to create the ingestion module.
     - I also need to push this project to public.
 
+* 15:00
+    - Added filestamps to the skeleton files.
+
 ---
 
 ### TO-DO
