@@ -26,3 +26,40 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
+
+
+import os
+
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, StorageContext
+from llama_index.vector_stores.chroma import ChromaVectorStore
+from llama_index.embeddings.ollama import OllamaEmbedding
+from llama_index.llms.ollama import Ollama
+from llama_index.core import Settings
+import chromadb
+
+
+Settings.llm = Ollama(model="llama3.1:8b", request_timeout=360.0)
+Settings.embed_model = OllamaEmbedding(model_name="llama3.1:8b")
+
+
+def ingest_documents():
+    print("Ingesting the documents...")
+
+    reader = SimpleDirectoryReader(input_dir="data/raw")
+    documents = reader.load_data()
+
+    db = chromadb.PersistentClient(path="./vector_store")
+    chroma_collection = db.get_or_create_collection("legal_knowledge_base")
+
+    vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
+    storage_context = StorageContext.from_defaults(vector_store=vector_store)
+
+    index = VectorStoreIndex.from_documents(
+        documents, storage_context=storage_context
+    )
+
+    print("Documents ingested successfully!")
+
+
+if __name__ == '__main__':
+    ingest_documents()
