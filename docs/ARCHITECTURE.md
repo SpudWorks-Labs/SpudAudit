@@ -1,13 +1,18 @@
 # SpudAudit
 
-SpudAudit is a local-first, RAG-driven legal auditor designed to identify illegal clauses and legal loopholes within residential leases - and more in future versions.
+SpudAudit is a local-first, RAG-driven legal auditor designed to identify
+illegal clauses and legal loopholes within residential leases - and more in
+future versions.
 
 ---
 
 ### Program Model
 - ***The RAG Pipeline:***
-    * The program takes a library of PDFs and other sources of information for the knowledge and a user provided query with an optional legal document upload.
-    * The Local LLM acts as a legal auditor and provides helpful information and required steps to the user.
+    * The program takes a library of PDFs and other sources of information
+      for the knowledge and a user provided query with an optional legal
+      document upload.
+    * The Local LLM acts as a legal auditor and provides helpful information
+      and required steps to the user.
     * Finally, the user receives a report on the information.
 - ***Tech Stack:***
     * **Language:** Python 3.11+
@@ -48,27 +53,35 @@ SpudAudit/
 ### Phase Roadmap
 **Phase 1: Foundation & Data Ingestion**
 * **Goal:** Environment setup and PDF/ByLaw Vectorization.
-* **Deliverble:** A script that can answer the users legal queries using local PDFs.
-* **Success Metric:** 100% Citation Reliability on basic legal retrieval queries.
+* **Deliverble:** A script that can answer the users legal queries using
+                  local PDFs.
+* **Success Metric:** 100% Citation Reliability on basic legal retrieval
+                      queries.
 
 **Phase 2: The Logic Layer & Prompt Engineering**
 * **Goal:** Create the "Comparison" prompt.
-* **Deliverable:** A CLI tool where you paste a clause, and it returns "Valid" or "Illegal" with a citation.
+* **Deliverable:** A CLI tool where you paste a clause, and it returns
+                  "Valid" or "Illegal" with a citation.
 * **Reality:** Can it detect an illegal "No Pets" clause for RTA 10/10 times?
 
 **Phase 3: Document Parsing & OCR**
 * **Goal:** Handle messy user inputs.
-* **Deliverable:** Integration of pypdf to allow users to upload PDF leases instead of copy-pasting text.
-* **Success Metric:** Successful text extraction from a legal document template.
+* **Deliverable:** Integration of pypdf to allow users to upload PDF leases
+                   instead of copy-pasting text.
+* **Success Metric:** Successful text extraction from a legal document
+                      template.
 
 **Phase 4: The SpudAudit UI**
 * **Goal:** Move from Terminal to the Browser.
-* **Deliverable:** A Streamlit dashboard with a "Risk Meter" and a "Download Audit Report" (PDF) button.
-* **Revenue Focus:** This is the version that can be shown to potential partners.
+* **Deliverable:** A Streamlit dashboard with a "Risk Meter" and a
+                   "Download Audit Report" (PDF) button.
+* **Revenue Focus:** This is the version that can be shown to potential
+                     partners.
 
 **Phase 5: Hallucination Guardrails & Lead Gen**
 * **Goal:** Stability and Outreach.
-* **Deliverable:** Implementation of a "Citation Check" so the AI cannot output a claim without a matching Section Index.
+* **Deliverable:** Implementation of a "Citation Check" so the AI cannot
+                   output a claim without a matching Section Index.
 * **Action:** Send a demo video to one Legal Aid clinic or Housing NGO.
 
 ---
